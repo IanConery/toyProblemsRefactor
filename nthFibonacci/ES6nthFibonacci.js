@@ -19,10 +19,21 @@
  * etc...
  *
  */
+//I am assuming that the number being passed to nthFib will always be greater than 0
+let nthFibonacci = (number, current, previous) => {
+  current = current || 0;
+  previous = previous || 0;
+  
+  if(number === 0){
+    return current;
+  }
+  
+  if(current === 0 && previous === 0){
+    return nthFibonacci(number - 1, current ++, previous);
+  }
 
-var nthFibonacci = function (n) {
-  // TODO: implement me!
+  previous = [current, current = current + previous][0];
+
+  return nthFibonacci(number - 1, current, previous);
+  
 };
-
-
-
